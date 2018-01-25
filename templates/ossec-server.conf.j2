@@ -1,12 +1,7 @@
 
 <ossec_config>
   <global>
-    <email_notification>yes</email_notification>
-    {% for email in admin_email_addresses %}
-    <email_to>{{ email }}</email_to>
-    {% endfor %}
-    <smtp_server>localhost</smtp_server>
-    <email_from>ossec-alerts@{{ ansible_fqdn }}</email_from>
+    <email_notification>no</email_notification>
   </global>
 
 <rules>
@@ -72,10 +67,10 @@
     <alert_new_files>yes</alert_new_files>
     <scan_on_start>no</scan_on_start>
     <scan_time>4am</scan_time>
-   
+
     <!-- Frequency that syscheck is executed -- default every 2 hours -->
     <frequency>82800</frequency>
-    
+
     <!-- Custom -->
     <directories check_all="yes" realtime="yes">/etc</directories>
     <directories check_all="yes">/usr/local/bin</directories>
@@ -120,7 +115,7 @@
   <!-- Active Response Config -->
   <active-response>
     <disabled>yes</disabled>
-  </active-response>  
+  </active-response>
 
   <alerts>
     <log_alert_level>1</log_alert_level>
